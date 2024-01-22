@@ -1,30 +1,25 @@
 import React from "react";
-import contacts from "./Contacts";
+import Avatar from "./Avatar";
+import Detail from "./Detail";
 
-function Card() {
-  let Card;
-
-  contacts.forEach((prop) => {
-    Card = <div>
+function Card(props) {
+  return <div>
     <div className="card">
       <div className="top">
-        <h2 className="name">{prop.name}</h2>
-        <img
-          className="circle-img"
-          src={prop.imgURL}
-          alt="avatar_img"
-        />
+        <h2 className="name">{props.name}</h2>
+        <Avatar img={props.img}/>
       </div>
       <div className="bottom">
-        <p className="info">{prop.phone}</p>
-        <p className="info">{prop.email}</p>
+        <Detail 
+          detailInfo = {props.tel}
+        />
+        <Detail 
+          detailInfo = {props.email}
+        />
       </div>
     </div>
   </div>
   
-  })
-
-return Card
 }
 
 export default Card;
